@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<!-- CSP support mode (required for Windows Universal apps): https://docs.angularjs.org/api/ng/directive/ngCsp -->
+<html lang="en" ng-app="app" ng-csp>
+<head>
+    <meta charset="utf-8" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="mobile-web-app-capable" content="yes" />
+
+    <!-- JS dependencies (order matters!) -->
+    <script src="scripts/platformOverrides.js"></script>
+    <script src="lib/angular/angular.js"></script>
+    <script src="lib/onsen/js/onsenui.js"></script>
+
+    <!-- CSS dependencies -->
+    <link rel="stylesheet" href="lib/onsen/css/onsenui.css" />
+    <link rel="stylesheet" href="lib/onsen/css/onsen-css-components-blue-basic-theme.css" />
+
+    <!-- CSP support mode (required for Windows Universal apps) -->
+    <link rel="stylesheet" href="lib/angular/angular-csp.css" />
+
+
+    <!-- --------------- App init --------------- -->
+
+    <title>Onsen UI Master-Details</title>
+
+    <link rel="stylesheet" href="css/stylez.css"/>
+
+</head>
+
+<body ng-controller="AppController">
+    <!-- Cordova reference -->
+    <script src="cordova.js"></script>
+    <script src="scripts/index.js"></script>
+    <script src="js/app.js"></script>
+
+    
+    <!-- HOME PAGE -->
+    <ons-navigator var="navi">
+        
+        <ons-page ng-controller="MasterController">
+        <ons-toolbar modifier="transparent">
+        <p style="color:white">Skatepark App</p>
+        </ons-toolbar>
+
+        <div class="card">
+        
+         <ons-carousel class="card" swipeable overscrollable auto-scroll fullscreen var="carousel">
+              <ons-carousel-item style="background-color: gray;">
+                  <img src="images/leeside.jpg" style="width: 400px; height: 250px;">
+              </ons-carousel-item>
+              <ons-carousel-item style="background-color: #085078;">
+                <img src="images/plaza.jpg" style="width: 400px; height: 250px;">
+                  <div class="item-label">Vancouver Skate Plaza</div>
+              </ons-carousel-item>
+              <ons-carousel-item style="background-color: #373B44;">
+                  <img src="images/chinacreek.jpg" style="width: 400px; height: 280px;">
+                <div class="item-label">DARK</div>
+              </ons-carousel-item>
+              <ons-carousel-cover><div class="cover-label">Featured</div></ons-carousel-cover>
+            </ons-carousel>
+
+          <div class="card-name">Onsen Sushi</div>
+          <div class="card-desc">Leeside Skate Park<br>Open until 10:30pm</div>
+
+        </div>
+
+        <div class="rating"><div class="rating-num">
+            <ons-icon icon="fa-star" fixed-width="false"></ons-icon>
+            <ons-icon icon="fa-star" fixed-width="false"></ons-icon>
+            <ons-icon icon="fa-star" fixed-width="false"></ons-icon>
+            <ons-icon icon="fa-star" fixed-width="false"></ons-icon>
+            <ons-icon icon="fa-star-half" fixed-width="false"></ons-icon>
+            4.5
+        </div></div>
+
+            
+        <p>Favourites</p>
+            
+        <ons-list style="margin-top: 12px;">
+            <ons-list-item modifier="chevron" class="item" ng-repeat="item in items" ng-click="showDetail($index)">
+                <ons-row>
+                    <ons-col>
+                          <div class="prop-desc">
+                            <ons-icon icon="fa-map-marker"></ons-icon>
+                            <span class="item-title">{{item.title}}</span>
+                          </div>
+
+                    </ons-col>
+                </ons-row>
+            </ons-list-item>
+        </ons-list>
+            
+                
+        </ons-page>
+    </ons-navigator>
+
+    
+    <!-- DETAIL PAGE -->
+    
+    <ons-template id="detail.html">
+        <ons-page ng-controller="DetailController">
+            
+         <ons-toolbar modifier="transparent">
+          <div class="left">
+            <ons-toolbar-button><ons-icon icon="ion-arrow-left-c" style="color: white; font-size: 28px;" fixed-width="false" ng-click="navi.popPage();"></ons-icon></ons-toolbar-button>
+          </div>
+        </ons-toolbar>
+
+        <div class="card">
+            
+         <ons-carousel class="card" swipeable overscrollable auto-scroll fullscreen var="carousel">
+              <ons-carousel-item style="background-color: gray;">
+                  <img src="images/leeside.jpg" style="width: 400px; height: 250px;">
+              </ons-carousel-item>
+              <ons-carousel-item style="background-color: #085078;">
+                <div class="item-label">BLUE</div>
+              </ons-carousel-item>
+              <ons-carousel-item style="background-color: #373B44;">
+                <div class="item-label">DARK</div>
+              </ons-carousel-item>
+              <ons-carousel-item style="background-color: #D38312;">
+                <div class="item-label">ORANGE</div>
+              </ons-carousel-item>
+              <ons-carousel-cover><div class="cover-label">Swipe left or right</div></ons-carousel-cover>
+            </ons-carousel>
+
+          <div class="card-name">Onsen Sushi</div>
+          <div class="card-desc">{{item.title}}<br>Open until 10:30pm</div>
+
+        </div>
+
+        <div class="rating"><div class="rating-num">
+            <ons-icon icon="fa-star" fixed-width="false"></ons-icon>
+            <ons-icon icon="fa-star" fixed-width="false"></ons-icon>
+            <ons-icon icon="fa-star" fixed-width="false"></ons-icon>
+            <ons-icon icon="fa-star" fixed-width="false"></ons-icon>
+            <ons-icon icon="fa-star-half" fixed-width="false"></ons-icon>
+            4.5
+        </div></div>
+
+        <ons-list style="border-top: none">
+            <ons-list-item style="line-height: 1; padding: 0;">
+                  <ons-row class="action">
+
+                    <ons-col class="action-col">
+                      <div class="action-icon"><ons-icon icon="ion-ios7-star-half"></ons-icon></div>
+                      <div class="action-label">Rate</div>
+                    </ons-col>
+
+                    <ons-col class="action-col">
+                      <div class="action-icon"><ons-icon icon="ion-bookmark"></ons-icon></div>
+                      <div class="action-label">Favorite</div>
+                    </ons-col>
+
+                    <ons-col class="action-col">
+                      <div class="action-icon"><ons-icon icon="ion-share"></ons-icon></div>
+                      <div class="action-label">Share</div>
+                    </ons-col>
+
+                    <ons-col class="action-col">
+                      <div class="action-icon"><ons-icon icon="ion-compose"></ons-icon></div>
+                      <div class="action-label">Check In</div>
+                    </ons-col>
+
+                  </ons-row>
+            </ons-list-item>
+        </ons-list>
+            
+            <p>{{item.title}}</p>
+            <p>Last Active {{item.label}} Ago</p>
+            <p>{{item.desc}}</p>
+       
+            
+        </ons-page>
+    </ons-template>
+    
+    
+    
+</body>
+</html>

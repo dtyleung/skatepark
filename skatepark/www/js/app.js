@@ -34,7 +34,7 @@
 
       data.items = [
           {
-              title: 'Leeside',
+              title: 'Strathcona',
               label: '4h',
               desc: 'RIP Lee.'
           },

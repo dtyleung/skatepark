@@ -35,24 +35,25 @@
       data.items = [
           {
               title: 'Strathcona',
-              label: '4h',
-              desc: 'RIP Lee.'
+              location: '884 Prior Street, Vancouver, BC',
+              lights: 'No',
+              inout: 'Outdoor',
+              desc: 'Asphalt & Concrete'
           },
           {
-              title: 'Burnside',
-              label: '6h',
-              desc: 'stoked!.'
+              title: 'Hastings',
+              location: '175 Renfrew St, Vancouver, BC',
+              lights: 'No',
+              inout: 'Outdoor',
+              desc: 'Concrete'
           },
           {
               title: 'China Creek',
-              label: '1day ago',
-              desc: 'Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.'
+              location: '175 Renfrew St, Vancouver, BC',
+              lights: 'No',
+              inout: 'Outdoor',
+              desc: 'Concrete, Asphalt, Wood'
           },
-          {
-              title: 'Strathcona',
-              label: '1day ago',
-              desc: 'Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.'
-          }
       ];
 
       return data;

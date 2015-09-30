@@ -1,6 +1,6 @@
 (function(){
   'use strict';
-  var module = angular.module('app', ['onsen']);
+  var module = angular.module('app', ['onsen', 'service']);
 
   module.controller('AppController', function($scope, $data) {
     $scope.doSomething = function() {
@@ -12,19 +12,32 @@
 
   module.controller('DetailController', function($scope, $data) {
     $scope.item = $data.selectedItem;
+      console.log($scope.item);
       
 
-      
   });
 
-  module.controller('MasterController', function($scope, $data) {
-    $scope.items = $data.items;
-
+  module.controller('MasterController', function($scope, $data, ParseService) {
+    //$scope.items = $data.items;
+      
+    setImmediate(function() {
+      console.log(carousel.getActiveCarouselItemIndex());
+    });
+      
     $scope.showDetail = function(index) {
-      var selectedItem = $data.items[index];
+      var selectedItem = $scope.items[index];
       $data.selectedItem = selectedItem;
       $scope.navi.pushPage('detail.html', {title : selectedItem.title});
     };
+      
+    ParseService.getParks(function(results) {
+      $scope.$apply(function() {
+        $scope.items = results;
+      });
+    });      
+      
+
+        
   });
     
     

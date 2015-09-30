@@ -10,6 +10,7 @@
     <script src="scripts/platformOverrides.js"></script>
     <script src="lib/angular/angular.js"></script>
     <script src="lib/onsen/js/onsenui.js"></script>
+    <script src="http://www.parsecdn.com/js/parse-1.6.4.min.js"></script>
 
     <!-- CSS dependencies -->
     <link rel="stylesheet" href="lib/onsen/css/onsenui.css" />
@@ -32,6 +33,7 @@
     <script src="cordova.js"></script>
     <script src="scripts/index.js"></script>
     <script src="js/app.js"></script>
+    <script src="js/services.js"></script>
 
     
     <!-- HOME PAGE -->
@@ -39,7 +41,9 @@
         
         <ons-page ng-controller="MasterController">
         <ons-toolbar modifier="transparent">
-        <p style="color:white">Skatepark App</p>
+            <div class="center">
+                Skatepark
+            </div>
         </ons-toolbar>
 
         <div class="card">
@@ -82,7 +86,7 @@
                     <ons-col>
                           <div class="prop-desc">
                             <ons-icon icon="fa-map-marker"></ons-icon>
-                            <span class="item-title">{{item.title}}</span>
+                            <span class="item-title">{{item.get('name')}}</span>
                           </div>
 
                     </ons-col>
@@ -125,7 +129,7 @@
             </ons-carousel>
 
           <div class="card-name">Onsen Sushi</div>
-          <div class="card-desc">{{item.title}}<br>Open until 10:30pm</div>
+          <div class="card-desc">{{item.get('name')}}<br>Open until 10:30pm</div>
 
         </div>
 
@@ -166,9 +170,9 @@
             </ons-list-item>
         </ons-list>
             
-            <p>{{item.title}}</p>
-            <p>{{item.location}} </p>
-            <p>Lights? {{item.location}} </p>
+<!--            <p>{{item.title}}</p>-->
+            <p> {{ item.get('location').latitude }}, {{ item.get('location').longitude }} </p>
+            <p>Lights?  </p>
             <p>Indoor/Outdoor: {{item.inout}}</p>
             <p>Riding Surface: {{item.desc}}</p>
        

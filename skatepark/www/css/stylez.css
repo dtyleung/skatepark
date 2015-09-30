@@ -4,6 +4,9 @@
 
 .list__item--chevron:before {color: darkgrey;}
 
+.page, .page__content {background: black !important;}
+
+p {color: #CCCCCC;}
 
 .item {
             padding: 10px;

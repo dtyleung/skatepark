@@ -142,6 +142,7 @@
             4.5
         </div></div>
 
+<!--
         <ons-list style="border-top: none">
             <ons-list-item style="line-height: 1; padding: 0;">
                   <ons-row class="action">
@@ -169,12 +170,13 @@
                   </ons-row>
             </ons-list-item>
         </ons-list>
+-->
             
 <!--            <p>{{item.title}}</p>-->
-            <p> {{ item.get('location').latitude }}, {{ item.get('location').longitude }} </p>
-            <p>Lights?  </p>
-            <p>Indoor/Outdoor: {{item.inout}}</p>
-            <p>Riding Surface: {{item.desc}}</p>
+            <p> Location: {{ item.get('location')}} </p>
+            <p>Lights? {{ item.get('lights')}} </p>
+            <p>Indoor/Outdoor: {{item.get('inout')}}</p>
+            <p>Riding Surface: {{item.get('material')}}</p>
        
 
 <!--            <p>Last Active {{item.label}} Ago</p>-->

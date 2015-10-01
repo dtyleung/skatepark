@@ -76,6 +76,7 @@ angular.module('service', [])
       // Get All Nodes
       getParks : function getParks(callback) {
         var query = new Parse.Query(Park);
+        query.equalTo('fave', 'yes');
         query.find({
           success : function(results) {
             callback(results);
@@ -86,6 +87,20 @@ angular.module('service', [])
         });
       },
 
+        // Search
+      searchParks : function searchParks(park, callback) {
+        var query = new Parse.Query(Park);
+        query.equalTo('name', park);
+        query.find({
+          success : function(results) {
+            callback(results);
+          },
+          error : function(error) {
+            alert("Error" + error.message);
+          }
+        });
+      },    
+        
       // Create A New Node
       addNode : function addNode(_ssid, _pwd, _biz, _sec, _nts, _usr, _loc, _img, callback) {
 

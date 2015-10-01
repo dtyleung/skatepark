@@ -110,6 +110,7 @@
           </div>
         </ons-toolbar>
 
+<!--
         <div class="card">
             
          <ons-carousel class="card" swipeable overscrollable auto-scroll fullscreen var="carousel">
@@ -132,6 +133,7 @@
           <div class="card-desc">{{item.get('name')}}<br>Open until 10:30pm</div>
 
         </div>
+-->
 
         <div class="rating"><div class="rating-num">
             <ons-icon icon="fa-star" fixed-width="false"></ons-icon>
@@ -173,10 +175,15 @@
 -->
             
 <!--            <p>{{item.title}}</p>-->
+            <div class="detail-photo">
+                <img ng-src="{{ item.get('pic').url() }}" style="width: 100%;">
+            </div>
+            <div class="info">
             <p> Location: {{ item.get('location')}} </p>
             <p>Lights? {{ item.get('lights')}} </p>
             <p>Indoor/Outdoor: {{item.get('inout')}}</p>
             <p>Riding Surface: {{item.get('material')}}</p>
+            </div>
        
 
 <!--            <p>Last Active {{item.label}} Ago</p>-->

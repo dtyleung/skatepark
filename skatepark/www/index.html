@@ -41,8 +41,14 @@
         
         <ons-page ng-controller="MasterController">
         <ons-toolbar modifier="transparent">
-            <div class="center">
+            <div class="center" style="color:white">
                 Skatepark
+            </div>
+            <div class="right">
+                <input type="search" class="search-input" placeholder="Search..." style="width: 200px;" 
+                       ng-show="searchField" ng-model="searchValue" ng-keyup="$event.keyCode == 13 && searchParks(searchValue)">
+                <ons-icon icon="ion-search" style="color:white" ng-click="searchField = !searchField"></ons-icon>
+
             </div>
         </ons-toolbar>
 

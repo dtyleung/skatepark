@@ -27,7 +27,8 @@
     $scope.showDetail = function(index) {
       var selectedItem = $scope.items[index];
       $data.selectedItem = selectedItem;
-      $scope.navi.pushPage('detail.html', {title : selectedItem.title});
+      console.log(selectedItem);
+      $scope.navi.pushPage('detail.html');
     };
       
     ParseService.getParks(function(results) {
@@ -36,6 +37,15 @@
       });
     });      
       
+    $scope.searchParks = function(searchValue) {
+        console.log("Searching for " + searchValue);
+        ParseService.searchParks(searchValue, function(result) {
+            console.log(result);
+            alert("Search returned " + result.get("name"));
+            //$data.selectedItem = result;
+            //$scope.navi.pushPage('detail.html');
+        });
+    }
 
         
   });

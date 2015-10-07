@@ -1,5 +1,9 @@
 .navigation-bar {background-color: #1A1A1A;} 
 
+ons-icon {margin-right: 16px;}
+
+.ons-icon--ion {line-height: 2em;}
+
 .fa-map-marker:before {color: #CCCCCC;}
 
 .list__item--chevron:before {color: darkgrey;}
